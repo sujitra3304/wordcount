@@ -1,19 +1,24 @@
 """Count words in file."""
 
-file = open("twain.txt")
 
-letter_count = {}
+import sys
 
-for line in file:
-    line = line.rstrip()
-    word = line.split(" ")
-    for i in word:
+def word_count(file):
+  opened_file = open(file)
+  letter_count = {}
 
-      letter_count[i] = letter_count.get(i, 0) + 1
+  for line in opened_file:
+      line = line.rstrip()
+      word = line.split(" ")
+      for i in word:
+
+        letter_count[i] = letter_count.get(i, 0) + 1
 
 
-for word, count in letter_count.items():
-    print(f"{word} {count}")
+  for word, count in letter_count.items():
+      print(f"{word} {count}")
+
+print(word_count(sys.argv[1]))
 
     
 
